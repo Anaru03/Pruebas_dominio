@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:rf-1.2": "playwright test --grep RF-1.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Anaru03/Pruebas_dominio.git"

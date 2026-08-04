@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:rf-1.2": "playwright test --grep RF-1.2"
+    "test:rf-1.2": "playwright test tests/rf1-2.spec.ts"
   },
   "repository": {
     "type": "git",

@@ -11,6 +11,7 @@ que el sistema no ofrece se documentan como pruebas manuales.
 |---|---|---|---:|
 | RF-1.1 | Información principal del servicio en la página de inicio | Automatizado | 3 |
 | RF-1.2 | Resumen de las últimas tres publicaciones | Automatizado | 3 |
+| RF-1.3 | Estadísticas por subdominio y rango de fechas | Automatizado | 3 |
 | RF-2.1 | Buscador para verificar disponibilidad de dominios | Automatizado | 3 |
 | RF-2.3 | Conversión de nombres IDN a Punycode y viceversa | Automatizado | 3 |
 | RF-4.2 | Renovación, pago, facturación y notificaciones | Manual | 3 |
@@ -21,6 +22,7 @@ que el sistema no ofrece se documentan como pruebas manuales.
 tests/
 ├── rf1-1.spec.ts   # Página principal
 ├── rf1-2.spec.ts   # Publicaciones de noticias
+├── rf1-3.spec.ts   # Estadísticas y filtros
 ├── rf2-1.spec.ts   # Disponibilidad de dominios
 ├── rf2-3.spec.ts   # Herramienta IDN/Punycode
 └── rf4-2.md        # Diseño y resultados de renovación manual
@@ -53,6 +55,7 @@ Ejecutar un requisito específico:
 ```powershell
 npx playwright test tests/rf1-1.spec.ts
 npm run test:rf-1.2
+npm run test:rf-1.3
 npx playwright test tests/rf2-1.spec.ts
 npm run test:rf-2.3
 ```
@@ -98,6 +101,16 @@ npx playwright show-report
 
 El entorno de RF-2.3 utiliza un certificado que no coincide con el host de
 pruebas. El archivo configura `ignoreHTTPSErrors` solamente para esos casos.
+
+### RF-1.3 — Estadísticas
+
+- Presentación del resumen, gráficas y desglose por sufijo.
+- Aplicación de un filtro de sufijo específico.
+- Actualización de resultados al cambiar el rango de fechas.
+
+Los casos TC-08 y TC-09 están diseñados para detectar el defecto observado en
+el entorno de pruebas: el botón **Consultar** conserva los valores elegidos,
+pero no modifica el desglose ni realiza una consulta de datos.
 
 ## RF-4.2 — Pruebas manuales
 

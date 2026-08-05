@@ -2,8 +2,7 @@ import { test, expect } from '@playwright/test';
 
 /*
 RF-1.1
-El sistema debe mostrar la información principal del servicio de
-registro de dominios en la página de inicio.
+El sistema debe mostrar la información principal del servicio de registro de dominios en la página de inicio.
 */
 
 // TC-01

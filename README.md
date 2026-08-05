@@ -13,13 +13,8 @@ que el sistema no ofrece se documentan como pruebas manuales.
 | RF-1.2 | Resumen de las últimas tres publicaciones | Automatizado | 3 |
 | RF-1.3 | Estadísticas por subdominio y rango de fechas | Automatizado | 3 |
 | RF-2.1 | Buscador para verificar disponibilidad de dominios | Automatizado | 3 |
-| RF-2.2 | Información WHOIS de dominios registrados | Automatizado | 3 |
 | RF-2.3 | Conversión de nombres IDN a Punycode y viceversa | Automatizado | 3 |
-| RF-3.1 | Carrito anónimo persistido en localStorage | Automatizado | 3 |
-| RF-3.2 | Autenticación requerida para finalizar la compra | Automatizado | 3 |
-| RF-4.1 | Información del procedimiento de renovación | Automatizado | 3 |
 | RF-4.2 | Renovación, pago, facturación y notificaciones | Manual | 3 |
-| RF-5.1 | Cambio de idioma entre español e inglés | Automatizado | 3 |
 
 ## Estructura
 
@@ -29,12 +24,7 @@ tests/
 ├── rf1-2.spec.ts   # Publicaciones de noticias
 ├── rf1-3.spec.ts   # Estadísticas y filtros
 ├── rf2-1.spec.ts   # Disponibilidad de dominios
-├── rf2-2.spec.ts   # WHOIS de dominios registrados
 ├── rf2-3.spec.ts   # Herramienta IDN/Punycode
-├── rf3-1.spec.ts   # Carrito anónimo y localStorage
-├── rf3-2.spec.ts   # Bloqueo de compra sin autenticación
-├── rf4-1.spec.ts   # Procedimiento de renovación
-├── rf5-1.spec.ts   # Cambio de idioma
 └── rf4-2.md        # Diseño y resultados de renovación manual
 ```
 
@@ -68,8 +58,6 @@ npm run test:rf-1.2
 npm run test:rf-1.3
 npx playwright test tests/rf2-1.spec.ts
 npm run test:rf-2.3
-npm run test:rf-3.1
-npm run test:rf-3.2
 ```
 
 Ejecutar solamente en Chromium:
@@ -123,13 +111,6 @@ pruebas. El archivo configura `ignoreHTTPSErrors` solamente para esos casos.
 Los casos TC-08 y TC-09 están diseñados para detectar el defecto observado en
 el entorno de pruebas: el botón **Consultar** conserva los valores elegidos,
 pero no modifica el desglose ni realiza una consulta de datos.
-
-### RF-3.1 y RF-3.2 — Carrito y compra
-
-- Adición de uno o varios dominios disponibles sin iniciar sesión.
-- Persistencia y recuperación del carrito desde `localStorage`.
-- Presentación de la barrera de autenticación antes del resumen y el pago.
-- Redirección al formulario de inicio de sesión.
 
 ## RF-4.2 — Pruebas manuales
 

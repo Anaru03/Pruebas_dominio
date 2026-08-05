@@ -14,6 +14,7 @@ que el sistema no ofrece se documentan como pruebas manuales.
 | RF-1.3 | Estadísticas por subdominio y rango de fechas | Automatizado | 3 |
 | RF-2.1 | Buscador para verificar disponibilidad de dominios | Automatizado | 3 |
 | RF-2.3 | Conversión de nombres IDN a Punycode y viceversa | Automatizado | 3 |
+| RF-3.1 | Carrito anónimo persistido en localStorage | Automatizado | 3 |
 | RF-4.2 | Renovación, pago, facturación y notificaciones | Manual | 3 |
 
 ## Estructura
@@ -25,6 +26,7 @@ tests/
 ├── rf1-3.spec.ts   # Estadísticas y filtros
 ├── rf2-1.spec.ts   # Disponibilidad de dominios
 ├── rf2-3.spec.ts   # Herramienta IDN/Punycode
+├── rf3-1.spec.ts   # Carrito anónimo y localStorage
 └── rf4-2.md        # Diseño y resultados de renovación manual
 ```
 
@@ -58,6 +60,7 @@ npm run test:rf-1.2
 npm run test:rf-1.3
 npx playwright test tests/rf2-1.spec.ts
 npm run test:rf-2.3
+npm run test:rf-3.1
 ```
 
 Ejecutar solamente en Chromium:
@@ -111,6 +114,12 @@ pruebas. El archivo configura `ignoreHTTPSErrors` solamente para esos casos.
 Los casos TC-08 y TC-09 están diseñados para detectar el defecto observado en
 el entorno de pruebas: el botón **Consultar** conserva los valores elegidos,
 pero no modifica el desglose ni realiza una consulta de datos.
+
+### RF-3.1 — Carrito anónimo
+
+- Adición de un dominio disponible al carrito sin iniciar sesión.
+- Persistencia y recuperación del carrito desde `localStorage`.
+- Acumulación de variantes `.gt` y `.com.gt` en el mismo carrito.
 
 ## RF-4.2 — Pruebas manuales
 
